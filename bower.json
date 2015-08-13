@@ -1,14 +1,14 @@
 {
-  "name": "ngScrollable",
-  "version": "0.1.2",
+  "name": "ngScrollableDeDebounced",
+  "version": "0.2.0",
   "homepage": "",
   "authors": [
     "Alexander Eichhorn <alex@kidtsunami.com>"
   ],
-  "description": "Superamazing scrollbars for AngularJS",
+  "description": "Superamazing scrollbars for AngularJS, hacky fix to get de-debounced scroll event",
   "main": [
     "min/ng-scrollable.min.css",
-    "min/ng-scrollable.min.js"
+    "src/ng-scrollable.js"
   ],
   "license": "MIT",
   "ignore": [

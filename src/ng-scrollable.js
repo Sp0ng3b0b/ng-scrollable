@@ -130,6 +130,7 @@ angular.module('ngScrollable', [])
         targetY = 0,
         trackTime,
         trackerTimeout,
+		onScrollPositionChanged = false,
 
         toPix = function (v) { return v.toFixed(3) + 'px'; },
         clamp = function (val, min, max) {
@@ -219,7 +220,12 @@ angular.module('ngScrollable', [])
           contentLeft = clamp(left, 0, contentWidth - containerWidth);
           dom.content[0].style[xform] = 'translate3d(' + toPix(-contentLeft) + ',' + toPix(-contentTop) + ',0)';
           // update external scroll spies
-          if (spySetter.spyX) {
+		  
+		  onScrollPositionChanged = attrs["onScrollPositionChanged"] && $scope[attrs["onScrollPositionChanged"]];
+		  onScrollPositionChanged && onScrollPositionChanged(contentLeft, contentTop);
+          
+		  
+		  if (spySetter.spyX) {
             spySetter.spyX($scope, parseInt(contentLeft, 10));
           }
           if (spySetter.spyY) {
